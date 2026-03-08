@@ -3,11 +3,20 @@ require_once "../config/Conexao.php";
 session_start();
 
 if ($_SERVER['REQUEST_METHOD'] === "POST") {
-    $dados = json_decode(file_get_contents("php://input"),true);
+    $dados = json_decode(file_get_contents("php://input"), true);
 
     // Obtém os dados da requisição
-    $email = $_POST['email'];
-    $senha = $_POST['senha'];
+    $email = $dados['email'];
+    $senha = $dados['senha'];
+
+    if(empty($email) || empty($senha)){
+        echo json_encode([
+            "status"=>"400",
+            "msg"=>"Campos invalidos!"
+        ]);
+        exit;
+    }
+
     // Prepara a query para receber o parâmetro 
     // previne injeção de SQL
     $stmt = $pdo->prepare("SELECT * FROM usuario WHERE email = :email");
@@ -20,7 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
     $usuario = $stmt->fetch();
 
     // Verifica se o email existe, e se a senha enviada bate com o hash armazenado no banco
-    if($usuario && password_verify($senha,$usuario['senha'])){
+    if ($usuario && password_verify($senha, $usuario['senha'])) {
         // Se sucesso, inicia a sessão do usuário e retorna uma mensagem de sucesso
         $_SESSION['id'] = $usuario['id'];
         $_SESSION['nome'] = $usuario['nome'];
@@ -31,12 +40,10 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
             [
                 "status" => "200",
                 "msg" => "OK",
-                ]
-            );
-        header("Location: ../view/dashboard.php");
-    }else{
+            ]
+        );
+    } else {
         // Caso o email ou a senha estejam
-        echo json_encode(["msg" => "email ou senha incorreta!"]);
-        header("Location: ../view/index.html");
+        echo json_encode(["status"=>"401","msg" => "email ou senha incorreta!"]);
     }
 }

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+    <script type="module" src="./javascript/CadastroProdutos.js" defer></script>
+    <script type="module" src="./javascript/GetProdutos.js" defer></script>
+</head>
+<body>
+    <h1>Cadastro de produtos</h1>
+    <form class="form_login">
+        <label for="nome">Nome</label><br>
+        <input type="text" name="nome" id="nome"><br>
+        <br>
+        
+        <input type="text" name="imagem" id="imagem" value=" https://cdn-icons-png.flaticon.com/512/3081/3081559.png" hidden>
+        
+        <label for="descricao">Descrição</label><br>
+        <input type="text" name="descricao" id="descricao"><br>
+        <br>
+
+        <label for="quantidade">Quantidade</label><br>
+        <input type="number" name="quantidade" id="quantidade"><br>
+        <br>
+
+        <label for="preco">Preço</label><br>
+        <input type="text" name="preco" id="preco"><br>
+        <br>
+        <input type="submit" value="ENVIAR">
+    </form>
+
+    <table class="tabelaProdutos" border="1">
+        <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Imagem</th>
+            <th>Descrição</th>
+            <th>Quantidade</th>
+            <th>Preço</th>
+        </tr>
+    </thead>
+    <tbody id="corpoTabela"></tbody>
+    </table>
+    
+</body>
+</html>
