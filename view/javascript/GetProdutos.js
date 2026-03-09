@@ -4,7 +4,7 @@ window.addEventListener('DOMContentLoaded', () => {
     
     // caso seja a primeira requisição (localstorage vazio)
     if(produtosLocal == null){
-        fetch("../controller/ControllerProdutos.php")
+        fetch("./javascript/Produtos.JSON")
         .then(res => res.json())
         .then(response => {
             let produtosBD = response;

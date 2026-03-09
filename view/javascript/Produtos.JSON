@@ -1,0 +1,98 @@
+[
+    {
+        "id": 1,
+        "nome": "Notebook Dell Inspiron 15",
+        "imagem": "https://images.unsplash.com/photo-1517336714731-489689fd1ca8",
+        "descricao": "Notebook com processador Intel Core i5, 8GB de RAM e SSD de 256GB. Ideal para estudos, trabalho e tarefas do dia a dia.",
+        "quantidade": 10,
+        "preco": "4299.90"
+    },
+    {
+        "id": 2,
+        "nome": "Bola de Futebol Adidas",
+        "imagem": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDBV1iBsrylLNG_Eo94AGu4HkYDCFHw4pL-g&s",
+        "descricao": "Bola de futebol oficial com material resistente e costura reforçada. Indicada para jogos recreativos e treinos.",
+        "quantidade": 15,
+        "preco": "89.90"
+    },
+    {
+        "id": 3,
+        "nome": "Console Xbox Series X",
+        "imagem": "https://images.unsplash.com/photo-1621259182978-fbf93132d53d",
+        "descricao": "Console de videogame da Microsoft com armazenamento SSD e suporte para jogos em alta performance.",
+        "quantidade": 8,
+        "preco": "2799.00"
+    },
+    {
+        "id": 4,
+        "nome": "Computador Desktop Gamer Básico",
+        "imagem": "https://images.unsplash.com/photo-1587202372775-e229f172b9d7",
+        "descricao": "PC com processador Ryzen 5, 16GB de RAM e SSD de 512GB. Ideal para jogos leves, programação e multitarefas.",
+        "quantidade": 6,
+        "preco": "3899.90"
+    },
+    {
+        "id": 5,
+        "nome": "Fone de Ouvido Bluetooth JBL",
+        "imagem": "https://mirandacomputacao.jetassets.com.br/produto/multifotos/hd/48435-principal.png",
+        "descricao": "Fone de ouvido sem fio com conexão Bluetooth, bateria de longa duração e som de alta qualidade.",
+        "quantidade": 20,
+        "preco": "199.90"
+    },
+    {
+        "id": 6,
+        "nome": "Mouse Gamer Logitech",
+        "imagem": "https://images.unsplash.com/photo-1527814050087-3793815479db",
+        "descricao": "Mouse gamer com sensor de alta precisão, iluminação RGB e design ergonômico para longas sessões de uso.",
+        "quantidade": 25,
+        "preco": "149.90"
+    },
+    {
+        "id": 7,
+        "nome": "Teclado Mecânico Redragon",
+        "imagem": "https://images.unsplash.com/photo-1511467687858-23d96c32e4ae",
+        "descricao": "Teclado mecânico com switches de alta durabilidade, iluminação RGB e estrutura reforçada para gamers.",
+        "quantidade": 18,
+        "preco": "299.90"
+    },
+    {
+        "id": 8,
+        "nome": "Monitor LG 24 Polegadas",
+        "imagem": "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf",
+        "descricao": "Monitor Full HD de 24 polegadas com painel IPS, cores vibrantes e ideal para trabalho ou entretenimento.",
+        "quantidade": 12,
+        "preco": "899.90"
+    },
+    {
+        "id": 9,
+        "nome": "Smartphone Samsung Galaxy A34",
+        "imagem": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9",
+        "descricao": "Smartphone com tela AMOLED de 6.6 polegadas, 128GB de armazenamento e câmera de alta resolução.",
+        "quantidade": 14,
+        "preco": "1799.90"
+    },
+    {
+        "id": 10,
+        "nome": "Cadeira Gamer Ergonômica",
+        "imagem": "https://images.unsplash.com/photo-1598300056393-4aac492f4344",
+        "descricao": "Cadeira gamer com apoio lombar, ajuste de altura e revestimento confortável para longas horas de uso.",
+        "quantidade": 7,
+        "preco": "1299.90"
+    },
+    {
+        "id": 11,
+        "nome": "HD Externo Seagate 1TB",
+        "imagem": "https://images.unsplash.com/photo-1597872200969-2b65d56bd16b",
+        "descricao": "HD externo portátil com capacidade de 1TB, ideal para backup de arquivos, fotos e documentos.",
+        "quantidade": 16,
+        "preco": "349.90"
+    },
+    {
+        "id": 12,
+        "nome": "Webcam Full HD Logitech",
+        "imagem": "https://images.unsplash.com/photo-1587829741301-dc798b83add3",
+        "descricao": "Webcam com resolução Full HD 1080p, ideal para reuniões online, aulas e transmissões ao vivo.",
+        "quantidade": 13,
+        "preco": "279.90"
+    }
+]

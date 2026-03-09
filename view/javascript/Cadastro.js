@@ -22,7 +22,7 @@ formCadastro.addEventListener('submit',(event) => {
     .then(response => {
         if(response.status == "201"){
             alert("Criado com sucesso!");
-            window.location.href = "./index.html";
+            window.location.href = "./login.html";
         }else{
             // Exibir mensagens de erro no form
         }
