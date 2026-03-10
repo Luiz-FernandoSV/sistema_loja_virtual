@@ -1,4 +1,4 @@
-const logoutBtn = document.querySelector('.logoutBtn');
+const logoutBtn = document.getElementById('btnSair');
 
 logoutBtn.addEventListener('click', () => {
     fetch('../controller/Logout.php')

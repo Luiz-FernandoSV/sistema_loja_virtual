@@ -1,6 +1,6 @@
 <?php
 session_start();
-if(!isset($_SESSION['email']) || !isset($_SESSION['nome'])){
+if (!isset($_SESSION['email']) || !isset($_SESSION['nome'])) {
     header("Location: index.html");
     exit;
 }
@@ -14,8 +14,8 @@ if(!isset($_SESSION['email']) || !isset($_SESSION['nome'])){
     <title>Dashboard- Usuário</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="./css/dashboard.css">
-    <!-- <script type="module" src="./javascript/Logout.js"></script> -->
+    <link rel="stylesheet" href="./css/forms.css">
+    <script type="module" src="./javascript/Logout.js"></script>
     <script type="module" src="./javascript/Dashboard.js"></script>
 
 </head>
@@ -30,8 +30,20 @@ if(!isset($_SESSION['email']) || !isset($_SESSION['nome'])){
                 <input class="form-control" type="search" placeholder="Buscar produtos..." aria-label="Search">
             </form>
 
-            <a href="./login.html" class="btn btn-outline-dark">Login</a>
+            <div class="action-buttons d-flex gap-2">
+                <?php if (isset($_SESSION['id'])): ?>
 
+                    <a href="./dashboard.php" class="btn btn-dark">Minha conta</a>
+
+                    <button href="./javascript/Logout.js" id="btnSair" class="btn btn-dark">Sair</button>
+
+                <?php else: ?>
+
+                    <a href="login.php">
+                        <button>Login</button>
+                    </a>
+                <?php endif; ?>
+            </div>
         </div>
     </nav>
     <div class="container main">
@@ -51,7 +63,8 @@ if(!isset($_SESSION['email']) || !isset($_SESSION['nome'])){
                             </span>
                             <div class="campo d-flex flex-column ms-3 flex-grow-1">
                                 <h5>Nome</h5>
-                                <input type="text" name="nome" class="input-dashboard form-control form-control-lg border-0 w-100" disabled
+                                <input type="text" name="nome"
+                                    class="input-dashboard form-control form-control-lg border-0 w-100" disabled
                                     value="<?php echo $_SESSION['nome'] ?>">
                             </div>
                         </div>
@@ -62,21 +75,13 @@ if(!isset($_SESSION['email']) || !isset($_SESSION['nome'])){
                             </span>
                             <div class="campo d-flex flex-column ms-3 flex-grow-1">
                                 <h5>Email</h5>
-                                <input type="text" name="email" class="input-dashboard form-control form-control-lg border-0 w-100" disabled value="<?php echo $_SESSION['email'] ?>">
+                                <input type="text" name="email"
+                                    class="input-dashboard form-control form-control-lg border-0 w-100" disabled
+                                    value="<?php echo $_SESSION['email'] ?>">
                             </div>
                         </div>
-
-
-                        <!-- <div class="container-campo d-flex">
-                            <span class="input-group-text">
-                                <i class="bi bi-lock fs-3"></i>
-                            </span>
-                            <div class="campo d-flex flex-column ms-3 flex-grow-1">
-                                <h5>Senha</h5>
-                                <input type="password" name="senha" class="input-dashboard form-control form-control-lg w-100 border-0 w-100" disabled value="123">
-                            </div>
-                        </div>   -->
-                        <input type="submit" name="salvar" id="salvar" value="Salvar alterações" class="btn btn-dark" hidden    >
+                        <input type="submit" name="salvar" id="salvar" value="Salvar alterações" class="btn btn-dark"
+                            hidden>
                     </form>
                 </div>
             </div>
@@ -84,83 +89,81 @@ if(!isset($_SESSION['email']) || !isset($_SESSION['nome'])){
     </div>
     <div class="container-footer container-fluid mt-5">
 
-            <div class="row container-lists g-4">
+        <div class="row container-lists g-4">
 
-                <div class="footer-text col">
-                    <h3>Sobre nós</h3>
+            <div class="footer-text col">
+                <h3>Sobre nós</h3>
 
-                    <p>
-                        Somos uma loja especializada em produtos de tecnologia,
-                        oferecendo eletrônicos, acessórios e gadgets das melhores marcas.
-                        Nosso objetivo é proporcionar qualidade, bons preços e uma experiência
-                        de compra simples e confiável para nossos clientes.
-                    </p>
-
-                </div>
-
-
-                <ul class="col list-group list-group-flush">
-
-                    <h5>Links</h5>
-
-                    <li class="list-group-item">
-                        <a href="./login.html">Login</a>
-                    </li>
-
-                    <li class="list-group-item">
-                        <a href="./cadastro.html">Cadastro</a>
-                    </li>
-
-                    <li class="list-group-item">
-                        <a href="#products-header">Produtos</a>
-                    </li>
-
-                </ul>
-
-
-                <ul class="col list-group list-group-flush">
-
-                    <h5>Contate-nos</h5>
-
-                    <li class="list-group-item">
-                        Email: LojaVirtual@gmail.com
-                    </li>
-
-                    <li class="list-group-item">
-                        Whatsapp: +55 (11) 12345-7891
-                    </li>
-
-                    <li class="list-group-item">
-                        Endereço: São Paulo - SP
-                    </li>
-
-                </ul>
-
-
-                <ul class="col list-group list-group-flush">
-
-                    <h5>Suporte</h5>
-
-                    <li class="list-group-item">
-                        Email: suporte@lojaVirtual.com
-                    </li>
-
-                    <li class="list-group-item">
-                        SAC: (11) 9999-9999
-                    </li>
-
-                </ul>
+                <p>
+                    Somos uma loja especializada em produtos de tecnologia,
+                    oferecendo eletrônicos, acessórios e gadgets das melhores marcas.
+                    Nosso objetivo é proporcionar qualidade, bons preços e uma experiência
+                    de compra simples e confiável para nossos clientes.
+                </p>
 
             </div>
 
 
-            <div class="text-center text-muted">
-                © 2026 LojaVirtual. Todos os direitos autorais reservados.
-            </div>
+            <ul class="col list-group list-group-flush">
+
+                <h5>Links</h5>
+
+                <li class="list-group-item">
+                    <a href="./login.html">Login</a>
+                </li>
+
+                <li class="list-group-item">
+                    <a href="./cadastro.html">Cadastro</a>
+                </li>
+
+                <li class="list-group-item">
+                    <a href="#products-header">Produtos</a>
+                </li>
+
+            </ul>
+
+
+            <ul class="col list-group list-group-flush">
+
+                <h5>Contate-nos</h5>
+
+                <li class="list-group-item">
+                    Email: LojaVirtual@gmail.com
+                </li>
+
+                <li class="list-group-item">
+                    Whatsapp: +55 (11) 12345-7891
+                </li>
+
+                <li class="list-group-item">
+                    Endereço: São Paulo - SP
+                </li>
+
+            </ul>
+
+
+            <ul class="col list-group list-group-flush">
+
+                <h5>Suporte</h5>
+
+                <li class="list-group-item">
+                    Email: suporte@lojaVirtual.com
+                </li>
+
+                <li class="list-group-item">
+                    SAC: (11) 9999-9999
+                </li>
+
+            </ul>
 
         </div>
-    <!-- <h1>Bem-Vindo(a) <?php echo $_SESSION['nome']?> | <?php echo $_SESSION['email']?></h1> -->
-    <!-- <button class="logoutBtn" href="../controller/Logout.php">Sair</button> -->
+
+
+        <div class="text-center text-muted">
+            © 2026 LojaVirtual. Todos os direitos autorais reservados.
+        </div>
+
+    </div>
 </body>
 
 </html>

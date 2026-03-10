@@ -1,6 +1,7 @@
 const formCadastro = document.querySelector('form');
+const msgErro = document.querySelector('.msgErro');
 
-formCadastro.addEventListener('submit',(event) => {
+formCadastro.addEventListener('submit', (event) => {
     event.preventDefault();
 
     const dados = new FormData(formCadastro);
@@ -8,10 +9,15 @@ formCadastro.addEventListener('submit',(event) => {
     let emailForm = dados.get('email');
     let senhaForm = dados.get('senha');
 
-    fetch('../controller/ControllerCadastro.php',{
+    if (nomeForm.length == 0 || emailForm.length == 0 || senhaForm.length == 0) {
+        msgErro.classList.remove('d-none');
+        return;
+    }
+
+    fetch('../controller/ControllerUser.php', {
         method: "POST",
         headers: {
-            "Content-Type":"application/json"
+            "Content-Type": "application/json"
         },
         body: JSON.stringify({
             nome: nomeForm,
@@ -19,12 +25,12 @@ formCadastro.addEventListener('submit',(event) => {
             senha: senhaForm
         })
     }).then(res => res.json())
-    .then(response => {
-        if(response.status == "201"){
-            alert("Criado com sucesso!");
-            window.location.href = "./login.html";
-        }else{
-            // Exibir mensagens de erro no form
-        }
-    })
+        .then(response => {
+
+            if (response.status == "201") {
+                window.location.href = "./login.html";
+            } else {
+                msgErro.classList.remove('d-none');
+            }
+        })
 })

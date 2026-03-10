@@ -1,12 +1,16 @@
 const form = document.querySelector('form');
+const msgErro = document.querySelector('.msgErro');
+console.log(msgErro);
+
 form.addEventListener("submit", (event) => {
+
+    event.preventDefault();
+
     const dados = new FormData(form);
 
     let emailForm = dados.get("email");
     let senhaForm = dados.get("senha");
-    console.log(emailForm, senhaForm);
 
-    event.preventDefault();
     fetch("../controller/ControllerAuth.php", {
         method: "POST",
         headers: {
@@ -19,12 +23,18 @@ form.addEventListener("submit", (event) => {
     })
         .then(res => res.json())
         .then(response => {
-            if (response.status == "200") {
-                // Redirecionamento para a página de dashboard
-                window.location.href = "./dashboard.php";
-            } else {
-                alert(response.msg);
-                // Exibir mensagens de erro no form
+            if(response.status == "404" || response.status == "401" || response.status == "400"){
+                // Exibe a mensagem de erro no form
+                msgErro.classList.remove('d-none')
             }
+            if (response.status == "200") {
+                // login correto, redireciona pra pagina de usuário
+                window.location.href = "./dashboard.php";
+            }
+
         })
-})
+        .catch(error => {
+            console.log(error);
+        });
+
+});

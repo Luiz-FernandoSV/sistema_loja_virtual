@@ -28,6 +28,14 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
     // Busca o resultado
     $usuario = $stmt->fetch();
 
+    if(!$usuario){
+        echo json_encode([
+            "status"=>"404",
+            "msg"=>"Nao Encontrado!"
+        ]);
+        exit;
+    }
+
     // Verifica se o email existe, e se a senha enviada bate com o hash armazenado no banco
     if ($usuario && password_verify($senha, $usuario['senha'])) {
         // Se sucesso, inicia a sessão do usuário e retorna uma mensagem de sucesso
@@ -42,8 +50,10 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
                 "msg" => "OK",
             ]
         );
+        exit;
     } else {
         // Caso o email ou a senha estejam
         echo json_encode(["status"=>"401","msg" => "email ou senha incorreta!"]);
+        exit;
     }
 }
