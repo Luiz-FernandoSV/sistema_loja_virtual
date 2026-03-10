@@ -28,7 +28,7 @@ formCadastro.addEventListener('submit', (event) => {
         .then(response => {
 
             if (response.status == "201") {
-                window.location.href = "./login.html";
+                window.location.href = "./login.php";
             } else {
                 msgErro.classList.remove('d-none');
             }

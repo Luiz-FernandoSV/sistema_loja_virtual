@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -8,6 +11,7 @@
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="./css/home.css">
+    <script src="./javascript/Logout.js" defer></script>
 
     <script type="module" src="./javascript/GetProdutos.js"></script>
 </head>
@@ -17,13 +21,28 @@
     <nav class="navbar bg-body-tertiary sticky-top">
         <div class="container align-items-center">
 
-            <h4 class="navbar-brand fw-bold fs-3">Loja Virtual</h4>
+            <a href="./index.php" class="navbar-brand fw-bold fs-3">
+                Loja Virtual
+            </a>
 
             <form class="mx-auto w-50">
                 <input class="form-control" type="search" placeholder="Buscar produtos..." aria-label="Search">
             </form>
 
-            <a href="./login.html" class="btn btn-outline-dark">Login</a>
+            <div class="action-buttons d-flex gap-2">
+                <?php if (isset($_SESSION['id'])): ?>
+
+                    <a href="./dashboard.php" class="btn btn-dark">Minha conta</a>
+
+                    <button href="./javascript/Logout.js" id="btnSair" class="btn btn-dark">Sair</button>
+
+                <?php else: ?>
+
+                    <a href="login.php">
+                        <a href="./login.php" class="btn btn-dark">Login</a>
+                    </a>
+                <?php endif; ?>
+            </div>
 
         </div>
     </nav>
@@ -82,15 +101,15 @@
                     <h5>Links</h5>
 
                     <li class="list-group-item">
-                        <a href="./login.html">Login</a>
+                        <a href="./login.php">Login</a>
                     </li>
 
                     <li class="list-group-item">
-                        <a href="./cadastro.html">Cadastro</a>
+                        <a href="./cadastro.php">Cadastro</a>
                     </li>
 
                     <li class="list-group-item">
-                        <a href="#products-header">Produtos</a>
+                        <a href="./index.php#products-header">Produtos</a>
                     </li>
 
                 </ul>

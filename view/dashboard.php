@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (!isset($_SESSION['email']) || !isset($_SESSION['nome'])) {
-    header("Location: index.html");
+    header("Location: index.php");
     exit;
 }
 ?>
@@ -24,7 +24,9 @@ if (!isset($_SESSION['email']) || !isset($_SESSION['nome'])) {
     <nav class="navbar bg-body-tertiary sticky-top">
         <div class="container align-items-center">
 
-            <h4 class="navbar-brand fw-bold fs-3">Loja Virtual</h4>
+            <a href="./index.php" class="navbar-brand fw-bold fs-3">
+                Loja Virtual
+            </a>
 
             <form class="mx-auto w-50">
                 <input class="form-control" type="search" placeholder="Buscar produtos..." aria-label="Search">
@@ -109,15 +111,15 @@ if (!isset($_SESSION['email']) || !isset($_SESSION['nome'])) {
                 <h5>Links</h5>
 
                 <li class="list-group-item">
-                    <a href="./login.html">Login</a>
+                    <a href="./login.php">Login</a>
                 </li>
 
                 <li class="list-group-item">
-                    <a href="./cadastro.html">Cadastro</a>
+                    <a href="./cadastro.php">Cadastro</a>
                 </li>
 
                 <li class="list-group-item">
-                    <a href="#products-header">Produtos</a>
+                    <a href="./index.php#products-header">Produtos</a>
                 </li>
 
             </ul>

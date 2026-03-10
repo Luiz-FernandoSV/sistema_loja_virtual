@@ -1,13 +1,21 @@
+<?php
+session_start();
+if (isset($_SESSION['email']) || isset($_SESSION['nome'])) {
+    header("Location: dashboard.php");
+    exit;
+}
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>Cadastro</title>
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
-    <script type="module" src="./javascript/Auth.js" defer></script>
+    <script type="module" src="./javascript/Cadastro.js" defer></script>
 </head>
 
 <body>
@@ -16,7 +24,7 @@
 
         <div class="container-main d-flex flex-column align-items-center border rounded p-3">
 
-            <a href="./index.html" class="text-dark text-decoration-none align-self-start mb-2">
+            <a href="./index.php" class="text-dark text-decoration-none align-self-start mb-2">
                 <h5><i class="bi bi-arrow-left"></i> Voltar para a loja</h5>
             </a>
 
@@ -24,8 +32,19 @@
 
                 <form class="form_login d-flex flex-column">
 
-                    <h2 class="text-center">Bem-Vindo de volta</h2>
-                    <p class="text-muted text-center">Faça login para continuar</p>
+                    <h2 class="text-center">Criar conta</h2>
+                    <p class="text-muted text-center">Cadastre-se para continuar</p>
+
+                    <h5>Nome</h5>
+
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">
+                            <i class="bi bi-person"></i>
+                        </span>
+
+                        <input type="text" name="nome" id="nome" class="form-control form-control-lg"
+                            placeholder="Seu nome">
+                    </div>
 
                     <h5>E-mail</h5>
 
@@ -49,17 +68,18 @@
                             placeholder="Crie uma senha">
                     </div>
 
-                    <h5 class="msgErro text-danger d-none">Email ou Senha incorreta!</h5>
+                    <h5 class="msgErro text-danger d-none">Campos inválidos!</h5>
 
-                    <input type="submit" value="Entrar" class="w-100 btn btn-dark mt-3">
+                    <input type="submit" value="Criar conta" class="w-100 btn btn-dark mt-3">
 
-                    <h4 class="text-center">ou</h4>
+                    <h4 class="text-center mt-2">ou</h4>
 
-                    <div class="link-register d-flex gap-1">
-                        <p>Não tem uma conta?</p>
+                    <div class="link-register d-flex gap-1 justify-content-center">
 
-                        <a href="./cadastro.html" class="text-dark text-decoration-none">
-                            Criar conta
+                        <p>Já tem uma conta?</p>
+
+                        <a href="./login.php" class="text-dark text-decoration-none">
+                            Fazer login
                         </a>
 
                     </div>
