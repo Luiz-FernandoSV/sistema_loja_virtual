@@ -1,6 +1,5 @@
 const form = document.querySelector('form');
 const msgErro = document.querySelector('.msgErro');
-console.log(msgErro);
 
 form.addEventListener("submit", (event) => {
 

@@ -23,7 +23,8 @@ btnEditar.addEventListener('click', () => {
 
 })
 
-formAlterar.addEventListener('submit', () => {
+formAlterar.addEventListener('submit', (event) => {
+    event.preventDefault();
     btnSalvar.setAttribute('hidden', true);
     const dados = new FormData(formAlterar);
 
@@ -42,9 +43,8 @@ formAlterar.addEventListener('submit', () => {
     })
         .then(res => res.json())
         .then(response => {
-            if (response.status == "200") {
-                alert("Alterado com sucesso!");
-                
+            if (!response.status == "200") {
+                console.log("erro na requisição!")
             }
         })
 })

@@ -11,6 +11,8 @@ session_start();
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="./css/home.css">
+    <link rel="stylesheet" href="./css/common.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="./javascript/Logout.js" defer></script>
 
     <script type="module" src="./javascript/GetProdutos.js"></script>
@@ -18,30 +20,45 @@ session_start();
 
 <body>
 
-    <nav class="navbar bg-body-tertiary sticky-top">
-        <div class="container align-items-center">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary sticky-top">
+        <div class="container">
 
             <a href="./index.php" class="navbar-brand fw-bold fs-3">
                 Loja Virtual
             </a>
 
-            <form class="mx-auto w-50">
-                <input class="form-control" type="search" placeholder="Buscar produtos..." aria-label="Search">
-            </form>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-            <div class="action-buttons d-flex gap-2">
-                <?php if (isset($_SESSION['id'])): ?>
+            <div class="collapse navbar-collapse gap-3" id="navbarContent">
 
-                    <a href="./dashboard.php" class="btn btn-dark">Minha conta</a>
+                <form class="w-100 w-lg-50 mx-lg-auto my-3 my-lg-0">
+                    <input class="form-control" type="search" placeholder="Buscar produtos..." aria-label="Search">
+                </form>
 
-                    <button href="./javascript/Logout.js" id="btnSair" class="btn btn-dark">Sair</button>
+                <div class="action-buttons d-flex flex-column flex-lg-row gap-2 align-items-start">
 
-                <?php else: ?>
+                    <?php if (isset($_SESSION['id'])): ?>
 
-                    <a href="login.php">
-                        <a href="./login.php" class="btn btn-dark">Login</a>
-                    </a>
-                <?php endif; ?>
+                        <a href="./dashboard.php" class="pageLink btn btn-dark text-nowrap">
+                            Minha conta
+                        </a>
+
+                        <button id="btnSair" class="pageLink btn btn-dark">
+                            Sair
+                        </button>
+
+                    <?php else: ?>
+
+                        <a href="login.php" class="pageLink btn-dark">
+                            Login
+                        </a>
+
+                    <?php endif; ?>
+
+                </div>
+
             </div>
 
         </div>
@@ -79,83 +96,73 @@ session_start();
         </div>
 
 
-        <div class="container-footer">
+        <footer class="container-footer container-fluid mt-5 py-5">
 
-            <div class="row container-lists g-4">
+            <div class="container">
 
-                <div class="footer-text col">
-                    <h3>Sobre nós</h3>
+                <div class="row g-4">
 
-                    <p>
-                        Somos uma loja especializada em produtos de tecnologia,
-                        oferecendo eletrônicos, acessórios e gadgets das melhores marcas.
-                        Nosso objetivo é proporcionar qualidade, bons preços e uma experiência
-                        de compra simples e confiável para nossos clientes.
-                    </p>
+                    <div class="col-12 col-md-6 col-lg-3 footer-text">
+
+                        <h3>Sobre nós</h3>
+
+                        <p>
+                            Somos uma loja especializada em produtos de tecnologia,
+                            oferecendo eletrônicos, acessórios e gadgets das melhores marcas.
+                            Nosso objetivo é proporcionar qualidade, bons preços e uma
+                            experiência de compra simples e confiável.
+                        </p>
+
+                    </div>
+
+
+                    <div class="col-6 col-md-6 col-lg-3">
+
+                        <h5>Links</h5>
+
+                        <ul class="list-unstyled">
+                            <li><a href="./login.php">Login</a></li>
+                            <li><a href="./cadastro.php">Cadastro</a></li>
+                            <li><a href="./index.php#products-header">Produtos</a></li>
+                        </ul>
+
+                    </div>
+
+
+                    <div class="col-6 col-md-6 col-lg-3">
+
+                        <h5>Contate-nos</h5>
+
+                        <ul class="list-unstyled">
+                            <li>Email: LojaVirtual@gmail.com</li>
+                            <li>Whatsapp: +55 (11) 12345-7891</li>
+                            <li>Endereço: São Paulo - SP</li>
+                        </ul>
+
+                    </div>
+
+
+                    <div class="col-12 col-md-6 col-lg-3">
+
+                        <h5>Suporte</h5>
+
+                        <ul class="list-unstyled">
+                            <li>Email: suporte@lojaVirtual.com</li>
+                            <li>SAC: (11) 9999-9999</li>
+                        </ul>
+
+                    </div>
 
                 </div>
 
 
-                <ul class="col list-group list-group-flush">
-
-                    <h5>Links</h5>
-
-                    <li class="list-group-item">
-                        <a href="./login.php">Login</a>
-                    </li>
-
-                    <li class="list-group-item">
-                        <a href="./cadastro.php">Cadastro</a>
-                    </li>
-
-                    <li class="list-group-item">
-                        <a href="./index.php#products-header">Produtos</a>
-                    </li>
-
-                </ul>
-
-
-                <ul class="col list-group list-group-flush">
-
-                    <h5>Contate-nos</h5>
-
-                    <li class="list-group-item">
-                        Email: LojaVirtual@gmail.com
-                    </li>
-
-                    <li class="list-group-item">
-                        Whatsapp: +55 (11) 12345-7891
-                    </li>
-
-                    <li class="list-group-item">
-                        Endereço: São Paulo - SP
-                    </li>
-
-                </ul>
-
-
-                <ul class="col list-group list-group-flush">
-
-                    <h5>Suporte</h5>
-
-                    <li class="list-group-item">
-                        Email: suporte@lojaVirtual.com
-                    </li>
-
-                    <li class="list-group-item">
-                        SAC: (11) 9999-9999
-                    </li>
-
-                </ul>
+                <div class="text-center text-muted mt-4">
+                    © 2026 LojaVirtual. Todos os direitos autorais reservados.
+                </div>
 
             </div>
 
-
-            <div class="text-center text-muted">
-                © 2026 LojaVirtual. Todos os direitos autorais reservados.
-            </div>
-
-        </div>
+        </footer>
     </div>
 
 </body>

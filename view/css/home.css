@@ -1,31 +1,48 @@
-*{
+* {
     box-sizing: border-box;
 }
 
-.banner-container{
+.banner-container {
     padding: 10px;
     gap: 10px;
 }
 
-.banner-text{
+.banner-text {
     width: 50%;
     font-size: 20px;
     padding: 10px;
 }
 
-.banner-img{
+.banner-img {
     width: 50%;
 }
 
-.card{
+.card {
     height: 100%;
 }
 
-.card p{
+.card p {
     font-weight: bold;
 }
 
-.produto-img{
+.produto-img {
     height: 200px;
     object-fit: cover;
+}
+
+@media (max-width: 768px) {
+    .banner-container {
+        width: 100%;
+        flex-direction: column-reverse;
+    }
+
+    .banner-img {
+        width: 100%;
+    }
+
+    .banner-text {
+        width: 100%;
+        font-size: 20px;
+        padding: 10px;
+    }
 }

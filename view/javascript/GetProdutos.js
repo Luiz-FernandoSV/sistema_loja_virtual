@@ -10,7 +10,6 @@ window.addEventListener('DOMContentLoaded', () => {
             let produtosBD = response;
             // salva os produtos no localstorage
             localStorage.setItem("produtos", JSON.stringify(produtosBD))
-            console.log("requisicao")
             // renderiza os produtos na tela
             renderizarProdutos(produtosBD)
         })
@@ -18,7 +17,6 @@ window.addEventListener('DOMContentLoaded', () => {
     else{
         // usa os produtos do localstorage e renderiza na tela
         renderizarProdutos(produtosLocal);
-        console.log("localstorage");
     }
 })
 
