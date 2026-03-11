@@ -1,0 +1,26 @@
+Instruções:
+    - criar o banco de dados e as tabelas
+    - iniciar o xampp
+        - iniciar o serviço do apache e mySQL
+    - ir para localhost/
+    - navegar até a pasta do projeto
+
+funcionalidades:
+    - Busca de produtos (cache de localstorage e por banco de dados)
+    - Cadastro de usuário
+    - Login de usuário
+    - Área restrita de usuário (Dashboard)
+    - Logout de usuário
+
+Ferramentas utilizadas:
+    - XAMPP
+    - MYSQL
+    - PHP
+    - HTML
+    - CSS
+        - BOOTSTRAP
+    - JAVASCRIPT
+    - POSTMAN PARA TESTES
+
+Link do repositório do GitHub:
+https://github.com/Luiz-FernandoSV/sistema_loja_virtual
