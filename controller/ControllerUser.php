@@ -1,17 +1,24 @@
 <?php
+// solicita o arquivo de conexão do banco de dados
 require_once "../config/Conexao.php";
 
+// verifica qual o método da requisição
 if ($_SERVER['REQUEST_METHOD'] === "POST") {
     $dados = json_decode(file_get_contents("php://input"), true);
 
+    // Obtém os dados da requisição
     $nome = $dados['nome'];
     $email = $dados['email'];
     $senha = $dados['senha'];
 
+    // transforma a senha que está em string em um hash
     $senhaHash = password_hash($senha, PASSWORD_BCRYPT);
 
+    // prepara a query para receber os parâmetros
+    // previne injeção de sql
     $stmt = $pdo->prepare("INSERT INTO usuario(nome,email,senha) VALUES (:nome,:email,:senha)");
 
+    // associa os campos com as variáveis e executa
     if (
         $stmt->execute([
             ':nome' => $nome,
@@ -19,6 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
             ':senha' => $senhaHash,
         ])
     ) {
+        // caso tenha criado
         echo json_encode(
             [
                 "status" => "201",
@@ -26,6 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
             ]
         );
     } else {
+        // caso algo tenha dado errado
         echo json_encode(
             [
                 "status" => "400",

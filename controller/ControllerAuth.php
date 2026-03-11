@@ -1,7 +1,10 @@
 <?php
+// solicita o arquivo de conexão do banco de dados
 require_once "../config/Conexao.php";
+// inicia a sessão
 session_start();
 
+// verifica qual o método da requisição
 if ($_SERVER['REQUEST_METHOD'] === "POST") {
     $dados = json_decode(file_get_contents("php://input"), true);
 
@@ -9,6 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
     $email = $dados['email'];
     $senha = $dados['senha'];
 
+    // verifica se os dados não estão vazios
     if(empty($email) || empty($senha)){
         echo json_encode([
             "status"=>"400",

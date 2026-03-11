@@ -3,14 +3,13 @@
 }
 
 .banner-container {
-    padding: 10px;
     gap: 10px;
+    padding: 10px;
 }
 
 .banner-text {
     width: 50%;
     font-size: 20px;
-    padding: 10px;
 }
 
 .banner-img {
@@ -31,18 +30,19 @@
 }
 
 @media (max-width: 768px) {
+
     .banner-container {
-        width: 100%;
         flex-direction: column-reverse;
     }
 
+    .banner-text,
     .banner-img {
         width: 100%;
     }
+}
 
-    .banner-text {
+@media (max-width:991px){
+    .pageLink{
         width: 100%;
-        font-size: 20px;
-        padding: 10px;
     }
 }

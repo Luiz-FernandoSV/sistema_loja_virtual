@@ -51,7 +51,7 @@ session_start();
 
                     <?php else: ?>
 
-                        <a href="login.php" class="pageLink btn-dark">
+                        <a href="login.php" class="pageLink btn btn-dark">
                             Login
                         </a>
 
