@@ -14,7 +14,7 @@ if (!isset($_SESSION['email']) || !isset($_SESSION['nome'])) {
     <title>Dashboard- Usuário</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/dashboard.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script type="module" src="./javascript/Logout.js"></script>
     <script type="module" src="./javascript/Dashboard.js"></script>
@@ -53,7 +53,7 @@ if (!isset($_SESSION['email']) || !isset($_SESSION['nome'])) {
 
                     <?php else: ?>
 
-                        <a href="login.php" class="pageLink btn-dark">
+                        <a href="login.php" class="pageLink btn btn-dark">
                             Login
                         </a>
 
